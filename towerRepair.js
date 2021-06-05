@@ -10,6 +10,14 @@ var towerRepair = {
             }
         });
 
+        var towersR2 = Game.spawns['Spawn2'].room.find(FIND_STRUCTURES, {
+            filter: (structure) => {
+                return (structure.structureType == STRUCTURE_TOWER);
+            }
+        });
+
+        towers.concat(towersR2);
+
         //Repair the most damaged thing
         const targets = towers[0].room.find(FIND_STRUCTURES, {
             filter: object => object.hits < object.hitsMax

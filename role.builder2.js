@@ -10,17 +10,14 @@ var roleBuilder2 = {
             }
         });
 
-        if (creep.store.getUsedCapacity() != 0) {
-
+        if (creep.moveTo(Game.flags.builder) == 0 && creep.store.getUsedCapacity() != 0) {
             var storrage = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_STORAGE) && (structure.store[RESOURCE_ENERGY] > 0);
                 }
             });
+                creep.transfer(storrage[0], RESOURCE_ENERGY);
 
-            if (creep.transfer(storrage[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(storrage[0], {visualizePathStyle: {stroke: '#ffffff'}});
-            }
 
 
         } else {

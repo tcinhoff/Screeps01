@@ -57,6 +57,9 @@ module.exports.loop = function () {
         if(creep.memory.role == 'harvester' || creep.memory.role == 'Rettungsharvester') {
             roleHarvester.run(creep);
         }
+        if(creep.memory.role == 'harvesterR2' || creep.memory.role == 'RettungsharvesterR2') {
+            roleHarvester.run(creep);
+        }
         if(creep.memory.role == 'harvester2') {
             roleHarvester2.run(creep);
         }

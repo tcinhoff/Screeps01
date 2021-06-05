@@ -33,7 +33,7 @@ var spawnCreeps = {
     
         if(harvesters.length < countHarvester) {
             var newName = 'Harvester' + Game.time;
-            if(Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
+            if(Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
                 {memory: {role: 'harvester'}}) == -6) {
             
             var Rettungsharvester = _.filter(Game.creeps, (creep) => creep.memory.role == 'Rettungsharvester');
