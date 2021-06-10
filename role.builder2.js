@@ -10,7 +10,7 @@ var roleBuilder2 = {
             }
         });
 
-        if (creep.moveTo(Game.flags.builder) == 0 && creep.store.getUsedCapacity() != 0) {
+        if (creep.moveTo(Game.flags.builder2) == 0 && creep.store.getUsedCapacity() != 0) {
             var storrage = creep.room.find(FIND_STRUCTURES, {
                 filter: (structure) => {
                     return (structure.structureType == STRUCTURE_STORAGE) && (structure.store[RESOURCE_ENERGY] > 0);

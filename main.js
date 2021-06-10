@@ -14,6 +14,8 @@ var roleRoomclaimer = require('role.roomclaimer');
 var spawnCreeps2 = require('spawningCreeps2');
 var roleMinerR2 = require('role.minerR2');
 
+//Game.rooms.W9N7.createFlag(1,1,'test');
+
 module.exports.loop = function () {
 
     for(var name in Memory.creeps) {
@@ -35,7 +37,15 @@ module.exports.loop = function () {
     });
     linker[1].transferEnergy(linker[0]);
     linker[2].transferEnergy(linker[0]);
-
+    
+    var linker2 = Game.spawns['Spawn2'].room.find(FIND_STRUCTURES, {
+        filter: (structure) => {
+            return (structure.structureType == STRUCTURE_LINK);
+        }
+    });
+    linker2[2].transferEnergy(linker2[1]);
+    linker2[0].transferEnergy(linker2[1]);
+    
     var storage = Game.spawns['Spawn1'].room.find(FIND_STRUCTURES, {
         filter: (structure) => {
             return (structure.structureType == STRUCTURE_STORAGE);
@@ -91,7 +101,7 @@ module.exports.loop = function () {
             roleUpgraderR2.run(creep);
         }
         if(creep.memory.role == 'minerR2') {
-            roleMinerR2.run(creep);
+            roleMiner.run(creep);
         }
     }
 

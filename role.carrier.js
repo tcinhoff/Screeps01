@@ -11,7 +11,6 @@ var roleCarrier = {
             creep.memory.building = true;
             creep.say('🚧 build');
         }
-
         if (creep.memory.building) {
                 var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
                 if (targets.length) {

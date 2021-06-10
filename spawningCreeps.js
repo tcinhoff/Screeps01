@@ -5,14 +5,14 @@ var spawnCreeps = {
 	    
 	    var countHarvester = 1;
         var countUpgraders = 0;
-        var countUpgraders2 = 2;
+        var countUpgraders2 = 1;
 	    var countBuilders = 0;
 	    var countCarrier = 0;
 
         var targets = Game.spawns['Spawn1'].room.find(FIND_CONSTRUCTION_SITES);
         var targets2 = Game.flags.S2.room.find(FIND_CONSTRUCTION_SITES);
         if (targets.length) {
-            countCarrier = 2;
+            countCarrier = 5;
         }
 
 
@@ -22,18 +22,12 @@ var spawnCreeps = {
             }
         });
 
-        if (storage[0].store.getUsedCapacity() > 500000) {
-            countUpgraders2 = 3;
-            if (storage.store.getUsedCapacity() > 700000) {
-                countUpgraders2 = 5;
-            }
-        }
 
         var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
     
         if(harvesters.length < countHarvester) {
             var newName = 'Harvester' + Game.time;
-            if(Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
+            if(Game.spawns['Spawn1'].spawnCreep([CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
                 {memory: {role: 'harvester'}}) == -6) {
             
             var Rettungsharvester = _.filter(Game.creeps, (creep) => creep.memory.role == 'Rettungsharvester');
@@ -68,7 +62,7 @@ var spawnCreeps = {
 
         if(upgraders2.length < countUpgraders2 && storage[0].store.getUsedCapacity() > 100000) {
             var newName = 'Upgraders2_' + Game.time;
-            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
+            Game.spawns['Spawn1'].spawnCreep([WORK,CARRY,MOVE], newName,
                 {memory: {role: 'upgrader2'}});
         }
 
@@ -95,7 +89,7 @@ var spawnCreeps = {
     
         if(carriers.length < countCarrier && storage[0].store.getUsedCapacity() > 50000) {
             var newName = 'Carriers' + Game.time;
-            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE], newName,
+            Game.spawns['Spawn1'].spawnCreep([WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE,MOVE], newName,
                 {memory: {role: 'carrier'}});
         }
         
