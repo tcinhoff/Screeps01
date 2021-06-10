@@ -7,7 +7,7 @@ var spawnCreeps2 = {
 
         if(upgragerR2.length < 2) {
             var newName = 'upgragerR2' + Game.time;
-            Game.spawns['Spawn2'].spawnCreep([WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
+            Game.spawns['Spawn2'].spawnCreep([WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,WORK,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,CARRY,MOVE,MOVE,MOVE], newName,
                 {memory: {role: 'upgragerR2'}});
         }
 
