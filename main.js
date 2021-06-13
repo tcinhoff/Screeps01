@@ -94,7 +94,7 @@ module.exports.loop = function () {
         if(creep.memory.role == 'miner2') {
             roleMiner2.run(creep);
         }
-        if(creep.memory.role == 'claimer') {
+        if(creep.memory.role == 'roomclaimer') {
             roleRoomclaimer.run(creep);
         }
         if(creep.memory.role == 'upgragerR2') {

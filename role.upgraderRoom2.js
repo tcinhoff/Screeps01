@@ -16,8 +16,9 @@ var roleUpgraderRoom2 = {
                 var toBuild = creep.room.find(FIND_CONSTRUCTION_SITES);
 
                 if (toBuild.length) {
-                    if (creep.build(toBuild[0]) == ERR_NOT_IN_RANGE) {
-                        creep.moveTo(toBuild[0], {visualizePathStyle: {stroke: '#ffffff'}});
+                    var built = creep.pos.findClosestByPath(toBuild);
+                    if (creep.build(built) == ERR_NOT_IN_RANGE) {
+                        creep.moveTo(built, {visualizePathStyle: {stroke: '#ffffff'}});
                     }
 
                 } else if (creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
